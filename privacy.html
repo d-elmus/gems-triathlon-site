@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — GEMS Triathlon</title>
-  <link rel="icon" href="assets/icon.png" />
+  <title>Politique de confidentialité — GEMS Triathlon</title>
+  <link rel="icon" href="assets/mascotte.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #04040C; --card: #0F1B2D; --border: rgba(255,255,255,0.07);
-      --green: #28BD6E; --cyan: #22C5D5; --text1: #FFFFFF; --text2: #B8C5D6; --text3: #6B7E96;
+      --bg: #090404; --panel: #110707; --border: rgba(240,230,225,0.08);
+      --red: #931621; --text1: #F0EAE5; --text2: rgba(240,234,229,0.60); --text3: rgba(240,234,229,0.32);
     }
-    body { background: var(--bg); color: var(--text1); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.7; }
+    body { background: var(--bg); color: var(--text1); font-family: 'DM Sans', -apple-system, sans-serif; line-height: 1.7; }
     nav {
       display: flex; align-items: center; justify-content: space-between;
       padding: 16px 40px; background: rgba(4,4,12,0.9); border-bottom: 1px solid var(--border);
@@ -46,8 +49,11 @@
 <body>
 
   <nav>
-    <a href="index.html"><img src="assets/logonoirhaut.png" alt="GEMS" /></a>
-    <a href="index.html">← Back to site</a>
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/mascotte.png" alt="GEMS" style="height:32px;width:32px;object-fit:cover;border-radius:8px;" />
+      <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--text1);">GEMS Triathlon</span>
+    </a>
+    <a href="index.html" style="font-size:13px;color:var(--text2);">← Retour au site</a>
   </nav>
 
   <div class="wrapper">

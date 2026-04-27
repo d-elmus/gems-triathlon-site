@@ -89,7 +89,7 @@
       border-bottom: 1px solid var(--hairline);
     }
     .nav-logo { display: flex; align-items: center; gap: 14px; }
-    .nav-logo img { height: 30px; object-fit: contain; }
+    .nav-logo img { height: 28px; object-fit: contain; }
     .nav-logo-tag { font-family: var(--dm); font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text3); padding-left: 14px; border-left: 1px solid var(--hairline-2); }
     .nav-links { display: flex; gap: 4px; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
     .nav-links a { font-family: var(--dm); font-size: 12px; font-weight: 600; color: var(--text2); letter-spacing: 0.06em; text-transform: uppercase; padding: 9px 16px; border-radius: 999px; transition: color .2s var(--ease), background .2s var(--ease); }
@@ -124,7 +124,7 @@
 
     /* ── HERO ──────────────────────────────────────────────────────────────── */
     .hero {
-      min-height: 100vh; display: grid; grid-template-columns: 1fr 440px;
+      min-height: 100vh; display: grid; grid-template-columns: 1fr 520px;
       gap: 60px; align-items: center;
       padding: 80px 56px 80px 72px;
       position: relative; z-index: 1; max-width: 1500px; margin: 0 auto;
@@ -172,9 +172,50 @@
     .chip-val { font-family: var(--barlow); font-weight: 800; font-size: 22px; line-height: 1; color: var(--text1); display: flex; align-items: baseline; gap: 4px; }
     .chip-val .unit { font-size: 11px; color: var(--text3); font-weight: 600; }
     .chip-val .badge { font-size: 11px; color: #28BD6E; font-weight: 700; font-family: var(--dm); }
-    .chip-1 { top: 14%; right: -60px; animation: float 5s ease-in-out .8s infinite; }
-    .chip-2 { bottom: 24%; left: -70px; animation: float 7s ease-in-out 1.6s infinite; }
-    .chip-3 { bottom: 4%; right: -30px; animation: float 5.5s ease-in-out 0.4s infinite; }
+    .chip-1 { top: 10%; right: -64px; animation: float 5s ease-in-out .8s infinite; }
+    .chip-2 { bottom: 14%; left: -76px; animation: float 7s ease-in-out 1.6s infinite; }
+
+    /* Phone mockup */
+    .phone-mockup {
+      position: relative; width: 260px; flex-shrink: 0;
+    }
+    .phone-frame {
+      position: relative; border-radius: 44px; overflow: hidden;
+      box-shadow:
+        0 0 0 10px #E8E0D4,
+        0 0 0 11px rgba(26,20,14,0.12),
+        0 32px 80px rgba(26,20,14,0.22),
+        0 8px 24px rgba(26,20,14,0.10);
+      background: #E8E0D4;
+    }
+    .phone-frame img { width: 100%; display: block; border-radius: 36px; }
+    /* Camera notch */
+    .phone-frame::before {
+      content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 10px; background: #1A1410; border-radius: 10px; z-index: 10;
+    }
+    .phone-glow {
+      position: absolute; inset: -50px;
+      background: radial-gradient(ellipse, rgba(147,22,33,0.14) 0%, transparent 65%);
+      filter: blur(20px); pointer-events: none; z-index: 0;
+    }
+    /* Corner brackets */
+    .bracket {
+      position: absolute; width: 24px; height: 24px; border: 2px solid var(--red); z-index: 3;
+    }
+    .bracket.tl { top: -12px; left: -12px; border-right: none; border-bottom: none; border-radius: 3px 0 0 0; }
+    .bracket.tr { top: -12px; right: -12px; border-left: none; border-bottom: none; border-radius: 0 3px 0 0; }
+    .bracket.bl { bottom: -12px; left: -12px; border-right: none; border-top: none; border-radius: 0 0 0 3px; }
+    .bracket.br { bottom: -12px; right: -12px; border-left: none; border-top: none; border-radius: 0 0 3px 0; }
+
+    /* Mascotte small, floating beside phone */
+    .mascotte-side {
+      position: absolute; bottom: -20px; right: -90px;
+      width: 140px;
+      filter: drop-shadow(0 12px 28px rgba(26,20,14,0.16));
+      animation: float 6s ease-in-out infinite;
+      z-index: 4;
+    }
 
     /* ── STATS STRIP ───────────────────────────────────────────────────────── */
     .stats-strip { background: var(--red); position: relative; z-index: 1; overflow: hidden; }
@@ -292,7 +333,7 @@
 <!-- nav -->
 <nav>
   <div class="nav-logo">
-    <img src="assets/logo-banner-white.jpg" alt="GEMS" />
+    <img src="assets/logo-red.jpg" alt="GEMS" />
     <span class="nav-logo-tag">Triathlon Coaching</span>
   </div>
   <div class="nav-links">
@@ -368,15 +409,32 @@
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="mascotte-wrap">
-          <div class="mascotte-glow"></div>
-          <img src="assets/mascotte.png" alt="GEMS Mascot" class="mascotte-main" />
-          <div class="chip chip-1">
+      <div class="hero-right" style="justify-content:flex-start;gap:40px;align-items:center;">
+        <!-- Phone mockup -->
+        <div class="phone-mockup" style="position:relative;z-index:2;">
+          <div class="phone-glow"></div>
+          <div class="bracket tl"></div>
+          <div class="bracket tr"></div>
+          <div class="bracket bl"></div>
+          <div class="bracket br"></div>
+          <div class="phone-frame">
+            <img src="assets/screenshot-app.png" alt="GEMS App" />
+          </div>
+          <!-- Mascotte floating beside phone -->
+          <img src="assets/mascotte.png" alt="GEMS Coach" class="mascotte-side" />
+        </div>
+
+        <!-- Floating chips -->
+        <div style="position:relative;display:flex;flex-direction:column;gap:14px;padding-top:40px;">
+          <div class="chip chip-1" style="position:relative;top:auto;right:auto;animation:float 5s ease-in-out .8s infinite;">
             <div class="chip-label">Weekly Load</div>
             <div class="chip-val">305 <span class="unit">TSS</span> <span class="badge">↑ +12%</span></div>
           </div>
-          <div class="chip chip-2">
+          <div class="chip chip-2" style="position:relative;top:auto;left:auto;bottom:auto;animation:float 7s ease-in-out 1.6s infinite;">
+            <div class="chip-label">Today's session</div>
+            <div class="chip-val">50 <span class="unit">min</span></div>
+          </div>
+          <div class="chip" style="padding:12px 16px;border-radius:16px;background:#fff;border:1.5px solid var(--hairline);box-shadow:0 8px 32px rgba(26,20,14,0.10);white-space:nowrap;animation:float 6s ease-in-out 0.4s infinite;">
             <div class="chip-label">Disciplines</div>
             <div style="display:flex;gap:6px;align-items:center;margin-top:2px;">
               <span style="width:8px;height:8px;border-radius:50%;background:#22C5D5;display:block;"></span>
@@ -384,10 +442,6 @@
               <span style="width:8px;height:8px;border-radius:50%;background:#1A9E55;display:block;"></span>
               <span style="font-family:var(--dm);font-size:11px;color:var(--text2);font-weight:600;">Triathlon</span>
             </div>
-          </div>
-          <div class="chip chip-3">
-            <div class="chip-label">Today's session</div>
-            <div class="chip-val">50 <span class="unit">min</span></div>
           </div>
         </div>
       </div>
